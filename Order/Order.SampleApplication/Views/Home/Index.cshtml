@@ -1,0 +1,38 @@
+﻿@using Order.SampleApplication.Models
+@model PurposeType
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Order Business Engine</h1>
+
+</div>
+
+
+
+@using (Html.BeginForm("Form2", "Home", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>Payment Purpose: </td>
+            <td>
+                @Html.DropDownList("purpose",
+                     new SelectList(Enum.GetValues(typeof(PurposeType))),
+                     "Select Payment Purpose",
+                     new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Submit Form" /></td>
+        </tr>
+    </table>
+}
+
+<br />
+<br />
+<div>
+    <h4 style="color:purple">
+        <b>Next Action:</b> @ViewBag.NextAction
+    </h4>
+</div>

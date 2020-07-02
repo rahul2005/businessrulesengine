@@ -23,6 +23,8 @@ namespace Order.Business.RuleEngine
             payment.NextAction = s_operators[op](GetPropValue(payment, prop));
         }
 
+        
+
         private static object GetPropValue(Payment user, string prop)
         {
             PropertyInfo propInfo = s_properties[prop];
